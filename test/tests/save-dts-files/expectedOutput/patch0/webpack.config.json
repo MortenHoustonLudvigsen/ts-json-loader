@@ -1,0 +1,61 @@
+{
+    "context": "C:\\Data\\GitHub\\ts-json-loader\\test\\.test\\save-dts-files",
+    "entry": {
+        "main": "C:\\Data\\GitHub\\ts-json-loader\\test\\.test\\save-dts-files\\src\\index.ts"
+    },
+    "output": {
+        "filename": "bundle.js",
+        "path": "C:\\Data\\GitHub\\ts-json-loader\\test\\.test\\save-dts-files\\.output",
+        "publicPath": "/"
+    },
+    "resolve": {
+        "extensions": [
+            ".ts",
+            ".tsx",
+            ".js"
+        ]
+    },
+    "module": {
+        "rules": [
+            {
+                "test": {},
+                "loader": "css-loader",
+                "options": {
+                    "modules": true,
+                    "camelCase": true,
+                    "localIdentName": "[path][name]-[local]"
+                }
+            },
+            {
+                "test": {},
+                "use": [
+                    {
+                        "loader": "ts-loader",
+                        "options": {
+                            "usePreviousLoaderGeneratedFiles": true,
+                            "silent": true
+                        }
+                    },
+                    {
+                        "loader": "ts-json-loader",
+                        "options": {
+                            "test": {},
+                            "save": true
+                        }
+                    }
+                ]
+            },
+            {
+                "test": {},
+                "loader": "newLine"
+            }
+        ]
+    },
+    "resolveLoader": {
+        "alias": {
+            "ts-json-loader": "C:\\Data\\GitHub\\ts-json-loader\\lib\\ts-json-loader.js",
+            "passthrough-loader": "C:\\Data\\GitHub\\ts-json-loader\\lib\\passthrough-loader.js",
+            "newLine": "C:\\Data\\GitHub\\ts-json-loader\\test\\lib\\newline.loader.js"
+        }
+    }
+}

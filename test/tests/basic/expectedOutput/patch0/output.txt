@@ -1,0 +1,12 @@
+    Asset     Size  Chunks             Chunk Names
+bundle.js  3.14 kB       0  [emitted]  main
+chunk    {0} bundle.js (main) 370 bytes [entry] [rendered]
+    [0] ./test/.test/basic/src/empty.json 20 bytes {0} [built]
+    [1] ./test/.test/basic/src/simple.json 143 bytes {0} [built]
+    [2] ./test/.test/basic/src/index.ts 207 bytes {0} [built] [2 errors]
+
+ERROR in ./test/.test/basic/src/index.ts
+[37m([39m[36m1[39m,[36m24[39m): [31merror TS2307: Cannot find module './empty.json'.[39m
+
+ERROR in ./test/.test/basic/src/index.ts
+[37m([39m[36m2[39m,[36m25[39m): [31merror TS2307: Cannot find module './simple.json'.[39m

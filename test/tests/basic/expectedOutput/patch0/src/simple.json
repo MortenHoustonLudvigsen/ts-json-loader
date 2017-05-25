@@ -1,0 +1,8 @@
+{
+    "null": null,
+    "true": true,
+    "false": false,
+    "number": 42,
+    "string": "string",
+    "array": [1, 2, 3, 4, 5]
+}
