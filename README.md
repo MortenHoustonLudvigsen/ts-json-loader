@@ -1,4 +1,4 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/lg827hhyt9n4jc11/branch/master?svg=true)](https://ci.appveyor.com/project/MortenHoustonLudvigsen/ts-json-loader/branch/master)
+[![Build status](https://ci.appveyor.com/api/projects/status/lg827hhyt9n4jc11/branch/master?svg=true)](https://ci.appveyor.com/project/MortenHoustonLudvigsen/ts-json-loader/branch/master) [![Build Status](https://travis-ci.org/MortenHoustonLudvigsen/ts-json-loader.svg?branch=master)](https://travis-ci.org/MortenHoustonLudvigsen/ts-json-loader)
 # ts-json-loader
 
 **_This package is not ready for use_**
