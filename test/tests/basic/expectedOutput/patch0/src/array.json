@@ -1,0 +1,131 @@
+[
+    {
+        "null": null,
+        "true": true,
+        "false": false,
+        "number": 42,
+        "string": "string",
+        "emptyArray": [],
+        "array": [
+            1,
+            2,
+            3,
+            4,
+            5
+        ],
+        "mixedArray": [
+            1,
+            "2",
+            true,
+            false,
+            null,
+            {
+                "false": false,
+                "number": 42,
+                "string": "string"
+            }
+        ],
+        "child1": {
+            "null": null,
+            "true": true,
+            "false": false
+        },
+        "child2": {
+            "number": 42,
+            "string": "string",
+            "array": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ]
+        }
+    },
+    {
+        "null": null,
+        "true": true,
+        "false": false,
+        "number": 42,
+        "string": "string",
+        "emptyArray": [],
+        "array": [
+            1,
+            2,
+            3,
+            4,
+            5
+        ],
+        "mixedArray": [
+            1,
+            "2",
+            true,
+            false,
+            null,
+            {
+                "false": false,
+                "number": 42,
+                "string": "string"
+            }
+        ],
+        "child1": {
+            "null": null,
+            "true": true,
+            "false": false
+        },
+        "child2": {
+            "number": 42,
+            "string": "string",
+            "array": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ]
+        }
+    },
+    {
+        "null": null,
+        "true": true,
+        "false": false,
+        "number": 42,
+        "string": "string",
+        "emptyArray": [],
+        "array": [
+            1,
+            2,
+            3,
+            4,
+            5
+        ],
+        "mixedArray": [
+            1,
+            "2",
+            true,
+            false,
+            null,
+            {
+                "false": false,
+                "number": 42,
+                "string": "string"
+            }
+        ],
+        "child1": {
+            "null": null,
+            "true": true,
+            "false": false
+        },
+        "child2": {
+            "number": 42,
+            "string": "string",
+            "array": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ]
+        }
+    }
+]

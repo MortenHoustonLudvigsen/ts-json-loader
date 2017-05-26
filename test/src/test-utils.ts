@@ -46,11 +46,13 @@ export function recreateDirectories(...dirs: string[]): void {
 
 export function copyDirectory(src: string, dest: string, predicate?: (fileName: string) => boolean): void {
     if (predicate) {
-        for (const fileName of glob.sync('*', { cwd: src, nodir: false }).filter(predicate)) {
-            const srcPath = path.resolve(src, fileName);
-            const destPath = path.resolve(dest, fileName);
-            rimraf.sync(destPath);
-            fs.copySync(srcPath, destPath, { clobber: true });
+        for (const fileName of glob.sync('*', { cwd: src, nodir: false, dot: true })) {
+            if (predicate(fileName)) {
+                const srcPath = path.resolve(src, fileName);
+                const destPath = path.resolve(dest, fileName);
+                rimraf.sync(destPath);
+                fs.copySync(srcPath, destPath, { clobber: true });
+            }
         }
     } else {
         recreateDirectories(dest);

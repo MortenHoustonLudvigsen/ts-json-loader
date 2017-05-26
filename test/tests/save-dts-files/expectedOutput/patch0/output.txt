@@ -1,2 +1,14 @@
-
-ERROR in Entry module not found: Error: Can't resolve 'src\index.ts' in 'test\.test\save-dts-files'
+    Asset     Size  Chunks             Chunk Names
+bundle.js  8.77 kB       0  [emitted]  main
+chunk    {0} bundle.js (main) 5.61 kB [entry] [rendered]
+    [0] ./test/.test/save-dts-files/src/array.json 1.46 kB {0} [built]
+    [1] ./test/.test/save-dts-files/src/child-objects.json 453 bytes {0} [built]
+    [2] ./test/.test/save-dts-files/src/empty-object.json 20 bytes {0} [built]
+    [3] ./test/.test/save-dts-files/src/false.json 23 bytes {0} [built]
+    [4] ./test/.test/save-dts-files/src/null.json 22 bytes {0} [built]
+    [5] ./test/.test/save-dts-files/src/number.json 20 bytes {0} [built]
+    [6] ./test/.test/save-dts-files/src/object.json 164 bytes {0} [built]
+    [7] ./test/.test/save-dts-files/src/package.json 1.68 kB {0} [built]
+    [8] ./test/.test/save-dts-files/src/string.json 29 bytes {0} [built]
+    [9] ./test/.test/save-dts-files/src/true.json 22 bytes {0} [built]
+   [10] ./test/.test/save-dts-files/src/index.ts 1.72 kB {0} [built]

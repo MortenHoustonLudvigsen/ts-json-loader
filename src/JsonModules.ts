@@ -4,6 +4,138 @@ import { Options } from './Options';
 import { TsHost } from './TsHost';
 import { parseImports } from './Imports';
 import { modules, Module } from './ModuleCache';
+import { CodeGenerator } from './CodeGenerator';
+
+interface Type {
+    generate(generator: CodeGenerator, isRoot?: boolean): void;
+}
+
+class SimpleType implements Type {
+    static readonly undefined = new SimpleType('undefined');
+    static readonly null = new SimpleType('null');
+    static readonly boolean = new SimpleType('boolean');
+    static readonly number = new SimpleType('number');
+    static readonly string = new SimpleType('string');
+
+    constructor(readonly type: string) {
+    }
+
+    generate(generator: CodeGenerator, isRoot?: boolean): void {
+        if (isRoot) {
+            generator.write('declare const __jsonRoot: ');
+        }
+        generator.write(this.type);
+        if (isRoot) {
+            generator.writeLine(';');
+            generator.writeLine('export default __jsonRoot;');
+        }
+    }
+}
+
+class ObjectType implements Type {
+    constructor(readonly host: TsHost, value: any) {
+        for (const property of Object.keys(value)) {
+            const type = getType(host, value[property]);
+            this.properties.push({ property, type });
+        }
+    }
+
+    readonly properties: { property: string, type: Type }[] = [];
+
+    generate(generator: CodeGenerator, isRoot?: boolean): void {
+        if (isRoot) {
+            generator.write('declare const __jsonRoot: ');
+        }
+        generator.writeLine('{');
+        generator.indent();
+
+        this.properties.forEach(property => {
+            generator.write('readonly ', this.host.identifier(property.property), ': ');
+            property.type.generate(generator);
+            generator.writeLine(';');
+        });
+
+        generator.outdent();
+        generator.write('}');
+        if (isRoot) {
+            generator.writeLine();
+            generator.writeLine('export default __jsonRoot;');
+
+            let first = true;
+            this.properties.forEach(property => {
+                if (property.property !== '__jsonRoot' && this.host.isValidIdentifier(property.property)) {
+                    if (first) {
+                        generator.writeLine();
+                        generator.writeLine('// Named exports with top level propeties whose names are valid identifiers');
+                    }
+                    first = false;
+                    generator.write('export const ', property.property, ': ');
+                    property.type.generate(generator);
+                    generator.writeLine(';');
+                }
+            });
+        }
+    }
+}
+
+class ArrayType implements Type {
+    constructor(readonly host: TsHost, value: any[]) {
+        this.itemTypes = value.map(v => getType(host, v));
+    }
+
+    readonly itemTypes: Type[];
+
+    generate(generator: CodeGenerator, isRoot?: boolean): void {
+        if (isRoot) {
+            generator.write('declare const __jsonRoot: ');
+        }
+        if (this.itemTypes.length === 0) {
+            generator.write('void[]');
+        } else {
+            generator.writeLine('[');
+            generator.indent();
+
+            let first = true;
+            this.itemTypes.forEach(itemType => {
+                if (!first) {
+                    generator.writeLine(',');
+                }
+                itemType.generate(generator);
+                first = false;
+            });
+
+            generator.outdent();
+            generator.writeLine();
+            generator.write(']');
+        }
+        if (isRoot) {
+            generator.writeLine(';');
+            generator.writeLine('export default __jsonRoot;');
+        }
+    }
+}
+
+function getType(host: TsHost, value: any): Type {
+    switch (typeof value) {
+        case 'undefined':
+            return SimpleType.undefined;
+        case 'boolean':
+            return SimpleType.boolean;
+        case 'number':
+            return SimpleType.number;
+        case 'string':
+            return SimpleType.string;
+        case 'object':
+            if (value === null) {
+                return SimpleType.null;
+            }
+            if (Array.isArray(value)) {
+                return new ArrayType(host, value);
+            }
+            return new ObjectType(host, value);
+    }
+    throw new Error(`Unknown type for ${value}`);
+}
 
 export class JsonModules {
     constructor(readonly host: TsHost, readonly loader: webpack.loader.LoaderContext, readonly options: Options) {
@@ -19,84 +151,40 @@ export class JsonModules {
 
     private loadJsonModule(filePath: string, prequel: string): Promise<Module> {
         return new Promise<Module>((resolve, reject) => {
-            let module = modules.get(filePath);
-            if (module) {
-                return resolve(module);
+            const file = modules.get(filePath);
+            if (file) {
+                return resolve(file);
             }
-            const source = this.host.readFile(filePath);
-            const contents = this.parseJsonModule(source);
-            if (contents) {
-                module = modules.add(filePath, `${prequel}\n\n${contents}`);
+            this.loader.loadModule(filePath, (err, source) => {
+                if (err) return reject(err);
+                const contents = this.parseJsonModule(source);
+                const file = modules.add(filePath, `${prequel}\n\n${contents}`);
                 if (this.options.save) {
-                    this.host.writeFileIfChanged(module.dtsPath, module.contents);
+                    this.host.writeFileIfChanged(file.dtsPath, file.contents);
                 }
-                return resolve(module);
-            }
-            return resolve(undefined);
+                resolve(file);
+            });
         });
     }
 
     private parseJsonModule(source: string | undefined): string | undefined {
+        function parseJson(source: string | undefined): any {
+            if (!source) {
+                return undefined;
+            }
+            const module: {exports?: any} = {};
+            eval(source);
+            return module.exports;
+        }
+
         const json = parseJson(source);
-        if (!json) {
+        if (json === undefined) {
             return undefined;
         }
-        console.log(json);
 
-        
-        const host = this.host;
-
-        function generateTypeDefinitions(classNames: string[]) {
-            let typings = '';
-
-            // Generate default object
-            typings += '// Default object containing all local CSS classes\n';
-            typings += 'declare const __styles: {\n';
-            for (const className of classNames) {
-                typings += `    ${JSON.stringify(className)}: string;\n`;
-            }
-            typings += '};\n';
-            typings += 'export default __styles;\n\n';
-
-            // Generate named exports
-            let firstNamedExport = true;
-            for (const className of classNames) {
-                if (className !== '__styles' && host.isValidIdentifier(className)) {
-                    if (firstNamedExport) {
-                        typings += '// Named exports with local CSS classes whose names are valid identifiers\n';
-                    }
-                    firstNamedExport = false;
-                    typings += `export const ${className}: string;\n`;
-                }
-            }
-
-            return typings;
-        }
-
-        function parseClassNames(source: string): string[] {
-            const match = /exports.locals\s*=\s*({[^}]*})/.exec(source);
-            const locals = match && JSON.parse(match[1]) || {};
-            const classNames = [];
-            for (const className in locals) {
-                if (locals.hasOwnProperty(className)) {
-                    classNames.push(className);
-                }
-            }
-            return classNames;
-        }
-
-        function parseJson(source: string | undefined): any {
-            if (!source){
-                return undefined;
-            }
-            try {
-                return JSON.parse(source);
-            } catch (err) {
-                return undefined;
-            }
-        }
-
-        // return generateTypeDefinitions(parseClassNames(source));
-        return "";
+        const generator = new CodeGenerator();
+        const type = getType(this.host, json);
+        type.generate(generator, true);
+        return generator.code;
     }
 }

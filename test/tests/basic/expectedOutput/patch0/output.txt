@@ -1,12 +1,14 @@
     Asset     Size  Chunks             Chunk Names
-bundle.js  3.14 kB       0  [emitted]  main
-chunk    {0} bundle.js (main) 370 bytes [entry] [rendered]
-    [0] ./test/.test/basic/src/empty.json 20 bytes {0} [built]
-    [1] ./test/.test/basic/src/simple.json 143 bytes {0} [built]
-    [2] ./test/.test/basic/src/index.ts 207 bytes {0} [built] [2 errors]
-
-ERROR in ./test/.test/basic/src/index.ts
-[37m([39m[36m1[39m,[36m24[39m): [31merror TS2307: Cannot find module './empty.json'.[39m
-
-ERROR in ./test/.test/basic/src/index.ts
-[37m([39m[36m2[39m,[36m25[39m): [31merror TS2307: Cannot find module './simple.json'.[39m
+bundle.js  8.77 kB       0  [emitted]  main
+chunk    {0} bundle.js (main) 5.61 kB [entry] [rendered]
+    [0] ./test/.test/basic/src/array.json 1.46 kB {0} [built]
+    [1] ./test/.test/basic/src/child-objects.json 453 bytes {0} [built]
+    [2] ./test/.test/basic/src/empty-object.json 20 bytes {0} [built]
+    [3] ./test/.test/basic/src/false.json 23 bytes {0} [built]
+    [4] ./test/.test/basic/src/null.json 22 bytes {0} [built]
+    [5] ./test/.test/basic/src/number.json 20 bytes {0} [built]
+    [6] ./test/.test/basic/src/object.json 164 bytes {0} [built]
+    [7] ./test/.test/basic/src/package.json 1.68 kB {0} [built]
+    [8] ./test/.test/basic/src/string.json 29 bytes {0} [built]
+    [9] ./test/.test/basic/src/true.json 22 bytes {0} [built]
+   [10] ./test/.test/basic/src/index.ts 1.72 kB {0} [built]
