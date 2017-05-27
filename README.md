@@ -86,20 +86,7 @@ declare const __jsonRoot: {
         string
     ];
 }
-export default __jsonRoot;
-
-// Named exports with top level propeties whose names are valid identifiers
-export const empty: null;
-export const valid: boolean;
-export const count: number;
-export const name: string;
-export const array: [
-    null,
-    boolean,
-    boolean,
-    number,
-    string
-];
+export = __jsonRoot;
 ```
 
 If the option `save` is `true` these typings will also be saved to file `object.json.d.ts`.

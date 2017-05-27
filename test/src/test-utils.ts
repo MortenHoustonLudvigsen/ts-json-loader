@@ -73,7 +73,7 @@ export function applyPatch(src: string, dest: string): void {
         }
     }
 
-    for (const fileName of glob.sync('**/*', { cwd: src, nodir: true })) {
+    for (const fileName of glob.sync('**/*', { cwd: src, nodir: true, dot: true })) {
         const srcFilePath = path.resolve(src, fileName);
         const srcContents = readFile(srcFilePath);
         if (path.basename(fileName) === '.delete') {

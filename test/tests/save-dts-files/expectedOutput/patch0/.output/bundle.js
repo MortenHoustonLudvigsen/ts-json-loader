@@ -70,6 +70,25 @@
 /* 0 */
 /***/ (function(module, exports) {
 
+module.exports = {
+	"empty": null,
+	"valid": true,
+	"not-valid": false,
+	"count": 42,
+	"name": "Aragorn",
+	"array": [
+		null,
+		true,
+		false,
+		43,
+		"Frodo"
+	]
+};
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports) {
+
 module.exports = [
 	{
 		"null": null,
@@ -203,7 +222,7 @@ module.exports = [
 ];
 
 /***/ }),
-/* 1 */
+/* 2 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -251,47 +270,28 @@ module.exports = {
 };
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, exports) {
 
 module.exports = {};
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports) {
 
 module.exports = false;
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports) {
 
 module.exports = null;
 
 /***/ }),
-/* 5 */
-/***/ (function(module, exports) {
-
-module.exports = 42;
-
-/***/ }),
 /* 6 */
 /***/ (function(module, exports) {
 
-module.exports = {
-	"empty": null,
-	"valid": true,
-	"not-valid": false,
-	"count": 42,
-	"name": "Aragorn",
-	"array": [
-		null,
-		true,
-		false,
-		43,
-		"Frodo"
-	]
-};
+module.exports = 42;
 
 /***/ }),
 /* 7 */
@@ -379,47 +379,29 @@ module.exports = true;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var empty_object_json_1 = __webpack_require__(2);
-var namedEmptyObject = __webpack_require__(2);
-var null_json_1 = __webpack_require__(4);
-var namedNull = __webpack_require__(4);
-var true_json_1 = __webpack_require__(9);
-var namedTrue = __webpack_require__(9);
-var false_json_1 = __webpack_require__(3);
-var namedFalse = __webpack_require__(3);
-var number_json_1 = __webpack_require__(5);
-var namedNumber = __webpack_require__(5);
-var string_json_1 = __webpack_require__(8);
-var namedString = __webpack_require__(8);
-var object_json_1 = __webpack_require__(6);
-var namedObject = __webpack_require__(6);
-var child_objects_json_1 = __webpack_require__(1);
-var namedChildren = __webpack_require__(1);
-var array_json_1 = __webpack_require__(0);
-var namedArray = __webpack_require__(0);
-var package_json_1 = __webpack_require__(7);
-var namedPkg = __webpack_require__(7);
+var emptyObjectJson = __webpack_require__(3);
+var nullJson = __webpack_require__(5);
+var trueJson = __webpack_require__(9);
+var falseJson = __webpack_require__(4);
+var numberJson = __webpack_require__(6);
+var stringJson = __webpack_require__(8);
+var objectJson = __webpack_require__(0);
+var childrenJson = __webpack_require__(2);
+var arrayJson = __webpack_require__(1);
+var pkgJson = __webpack_require__(7);
+var object_json_1 = __webpack_require__(0);
 var everything = {
-    emptyObject: empty_object_json_1.default,
-    namedEmptyObject: namedEmptyObject,
-    Null: null_json_1.default,
-    namedNull: namedNull,
-    True: true_json_1.default,
-    namedTrue: namedTrue,
-    False: false_json_1.default,
-    namedFalse: namedFalse,
-    Number: number_json_1.default,
-    namedNumber: namedNumber,
-    String: string_json_1.default,
-    namedString: namedString,
-    object: object_json_1.default,
-    namedObject: namedObject,
-    children: child_objects_json_1.default,
-    namedChildren: namedChildren,
-    array: array_json_1.default,
-    namedArray: namedArray,
-    pkg: package_json_1.default,
-    namedPkg: namedPkg
+    emptyObjectJson: emptyObjectJson,
+    nullJson: nullJson,
+    trueJson: trueJson,
+    falseJson: falseJson,
+    numberJson: numberJson,
+    stringJson: stringJson,
+    objectJson: objectJson,
+    childrenJson: childrenJson,
+    arrayJson: arrayJson,
+    pkgJson: pkgJson,
+    name: object_json_1.name
 };
 
 

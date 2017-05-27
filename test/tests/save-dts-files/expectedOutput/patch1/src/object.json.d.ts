@@ -3,5 +3,18 @@
 // See: https://github.com/MortenHoustonLudvigsen/ts-json-loader
 // ------------------------------------------------------------------------
 
-declare const __jsonRoot: string;
+declare const __jsonRoot: {
+    readonly empty: null;
+    readonly valid: boolean;
+    readonly 'not-valid': boolean;
+    readonly count: number;
+    readonly namex: string;
+    readonly array: [
+        null,
+        boolean,
+        boolean,
+        number,
+        string
+    ];
+}
 export = __jsonRoot;

@@ -75,7 +75,7 @@ module.exports = {
 	"valid": true,
 	"not-valid": false,
 	"count": 42,
-	"name": "Aragorn",
+	"namex": "Aragorn",
 	"array": [
 		null,
 		true,

@@ -4,4 +4,4 @@
 // ------------------------------------------------------------------------
 
 declare const __jsonRoot: boolean;
-export default __jsonRoot;
+export = __jsonRoot;

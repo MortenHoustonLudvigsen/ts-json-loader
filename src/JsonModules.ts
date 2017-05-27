@@ -27,7 +27,7 @@ class SimpleType implements Type {
         generator.write(this.type);
         if (isRoot) {
             generator.writeLine(';');
-            generator.writeLine('export default __jsonRoot;');
+            generator.writeLine('export = __jsonRoot;');
         }
     }
 }
@@ -59,21 +59,7 @@ class ObjectType implements Type {
         generator.write('}');
         if (isRoot) {
             generator.writeLine();
-            generator.writeLine('export default __jsonRoot;');
-
-            let first = true;
-            this.properties.forEach(property => {
-                if (property.property !== '__jsonRoot' && this.host.isValidIdentifier(property.property)) {
-                    if (first) {
-                        generator.writeLine();
-                        generator.writeLine('// Named exports with top level propeties whose names are valid identifiers');
-                    }
-                    first = false;
-                    generator.write('export const ', property.property, ': ');
-                    property.type.generate(generator);
-                    generator.writeLine(';');
-                }
-            });
+            generator.writeLine('export = __jsonRoot;');
         }
     }
 }
@@ -110,7 +96,7 @@ class ArrayType implements Type {
         }
         if (isRoot) {
             generator.writeLine(';');
-            generator.writeLine('export default __jsonRoot;');
+            generator.writeLine('export = __jsonRoot;');
         }
     }
 }

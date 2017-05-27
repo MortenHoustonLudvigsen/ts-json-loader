@@ -1,0 +1,8 @@
+{
+    "empty": null,
+    "valid": true,
+    "not-valid": false,
+    "count": 42,
+    "namex": "Aragorn",
+    "array": [null, true, false, 43, "Frodo"]
+}
