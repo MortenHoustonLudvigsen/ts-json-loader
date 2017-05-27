@@ -68,8 +68,6 @@ export class TsHost {
 
     isValidIdentifier(identifier: string): boolean {
         this.scanner.setText(identifier);
-        // const token = this.scanner.scan();
-        // const next = this.scanner.scan();
         return this.scanner.scan() === this.ts.SyntaxKind.Identifier
             && this.scanner.scan() === this.ts.SyntaxKind.EndOfFileToken;
     }
