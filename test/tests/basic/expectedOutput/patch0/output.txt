@@ -1,6 +1,6 @@
-    Asset  Size  Chunks             Chunk Names
-bundle.js  8 kB       0  [emitted]  main
-chunk    {0} bundle.js (main) 4.81 kB [entry] [rendered]
+    Asset     Size  Chunks             Chunk Names
+bundle.js  7.99 kB       0  [emitted]  main
+chunk    {0} bundle.js (main) 4.8 kB [entry] [rendered]
     [0] ./test/.test/basic/src/object.json 164 bytes {0} [built]
     [1] ./test/.test/basic/src/array.json 1.46 kB {0} [built]
     [2] ./test/.test/basic/src/child-objects.json 453 bytes {0} [built]
@@ -11,4 +11,4 @@ chunk    {0} bundle.js (main) 4.81 kB [entry] [rendered]
     [7] ./test/.test/basic/src/package.json 1.68 kB {0} [built]
     [8] ./test/.test/basic/src/string.json 29 bytes {0} [built]
     [9] ./test/.test/basic/src/true.json 22 bytes {0} [built]
-   [10] ./test/.test/basic/src/index.ts 912 bytes {0} [built]
+   [10] ./test/.test/basic/src/index.ts 908 bytes {0} [built]

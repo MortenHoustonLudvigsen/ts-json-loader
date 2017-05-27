@@ -1,6 +1,6 @@
-    Asset  Size  Chunks             Chunk Names
-bundle.js  8 kB       0  [emitted]  main
-chunk    {0} bundle.js (main) 4.81 kB [entry] [rendered]
+    Asset     Size  Chunks             Chunk Names
+bundle.js  7.99 kB       0  [emitted]  main
+chunk    {0} bundle.js (main) 4.8 kB [entry] [rendered]
     [0] ./test/.test/save-dts-files/src/object.json 165 bytes {0} [built]
     [1] ./test/.test/save-dts-files/src/array.json 1.46 kB {0}
     [2] ./test/.test/save-dts-files/src/child-objects.json 453 bytes {0}
@@ -11,7 +11,7 @@ chunk    {0} bundle.js (main) 4.81 kB [entry] [rendered]
     [7] ./test/.test/save-dts-files/src/package.json 1.68 kB {0}
     [8] ./test/.test/save-dts-files/src/string.json 29 bytes {0}
     [9] ./test/.test/save-dts-files/src/true.json 22 bytes {0}
-   [10] ./test/.test/save-dts-files/src/index.ts 912 bytes {0} [built] [1 error]
+   [10] ./test/.test/save-dts-files/src/index.ts 908 bytes {0} [built] [1 error]
 
 ERROR in ./test/.test/save-dts-files/src/index.ts
 [37m([39m[36m11[39m,[36m10[39m): [31merror TS2305: Module '"/test/.test/save-dts-files/src/object.json"' has no exported member 'name'.[39m

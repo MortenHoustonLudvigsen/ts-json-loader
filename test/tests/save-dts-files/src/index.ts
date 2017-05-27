@@ -10,7 +10,7 @@ import * as arrayJson from './array.json';
 import * as pkgJson from './package.json';
 import { name } from './object.json';
 
-const everything = {
+console.log({
     emptyObjectJson: emptyObjectJson,
     nullJson: nullJson,
     trueJson: trueJson,
@@ -22,4 +22,4 @@ const everything = {
     arrayJson: arrayJson,
     pkgJson: pkgJson,
     name: name
-};
+});

@@ -390,7 +390,7 @@ var childrenJson = __webpack_require__(2);
 var arrayJson = __webpack_require__(1);
 var pkgJson = __webpack_require__(7);
 var object_json_1 = __webpack_require__(0);
-var everything = {
+console.log({
     emptyObjectJson: emptyObjectJson,
     nullJson: nullJson,
     trueJson: trueJson,
@@ -402,7 +402,7 @@ var everything = {
     arrayJson: arrayJson,
     pkgJson: pkgJson,
     name: object_json_1.name
-};
+});
 
 
 /***/ })
