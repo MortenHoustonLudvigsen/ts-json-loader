@@ -99,7 +99,7 @@ import * as obj from './object.json';
 console.log(obj.name);
 ```
 
-The names exports can also be used:
+Named imports can also be used:
 
 ```typescript
 import { name, count } from './object.json';
