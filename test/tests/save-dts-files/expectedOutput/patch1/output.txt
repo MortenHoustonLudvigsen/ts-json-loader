@@ -1,17 +1,17 @@
     Asset     Size  Chunks             Chunk Names
 bundle.js  7.99 kB       0  [emitted]  main
 chunk    {0} bundle.js (main) 4.8 kB [entry] [rendered]
-    [0] ./test/.test/save-dts-files/src/object.json 165 bytes {0} [built]
-    [1] ./test/.test/save-dts-files/src/array.json 1.46 kB {0}
-    [2] ./test/.test/save-dts-files/src/child-objects.json 453 bytes {0}
-    [3] ./test/.test/save-dts-files/src/empty-object.json 20 bytes {0}
-    [4] ./test/.test/save-dts-files/src/false.json 23 bytes {0}
-    [5] ./test/.test/save-dts-files/src/null.json 22 bytes {0}
-    [6] ./test/.test/save-dts-files/src/number.json 20 bytes {0}
-    [7] ./test/.test/save-dts-files/src/package.json 1.68 kB {0}
-    [8] ./test/.test/save-dts-files/src/string.json 29 bytes {0}
-    [9] ./test/.test/save-dts-files/src/true.json 22 bytes {0}
-   [10] ./test/.test/save-dts-files/src/index.ts 908 bytes {0} [built] [1 error]
+    [0] ./src/object.json 165 bytes {0} [built]
+    [1] ./src/array.json 1.46 kB {0}
+    [2] ./src/child-objects.json 453 bytes {0}
+    [3] ./src/empty-object.json 20 bytes {0}
+    [4] ./src/false.json 23 bytes {0}
+    [5] ./src/null.json 22 bytes {0}
+    [6] ./src/number.json 20 bytes {0}
+    [7] ./src/package.json 1.68 kB {0}
+    [8] ./src/string.json 29 bytes {0}
+    [9] ./src/true.json 22 bytes {0}
+   [10] ./src/index.ts 908 bytes {0} [built] [1 error]
 
-ERROR in ./test/.test/save-dts-files/src/index.ts
+ERROR in ./src/index.ts
 [37m([39m[36m11[39m,[36m10[39m): [31merror TS2305: Module '"/test/.test/save-dts-files/src/object.json"' has no exported member 'name'.[39m

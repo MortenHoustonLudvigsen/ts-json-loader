@@ -1,5 +1,3 @@
-import { TsHost } from './TsHost';
-
 export class CodeGenerator {
     private _code = '';
     private _indentCount = 0;

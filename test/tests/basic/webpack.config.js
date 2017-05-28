@@ -14,15 +14,6 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.css$/,
-                loader: 'css-loader',
-                options: {
-                    modules: true,
-                    camelCase: true,
-                    localIdentName: '[path][name]-[local]'
-                }
-            },
-            {
                 test: /\.tsx?$/,
                 use: [
                     {
